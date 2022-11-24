@@ -11,6 +11,6 @@
   
   <script>
   export default {
-    name: 'HelloWorld',
+    name: 'HeaderPage',
   }
   </script>  
