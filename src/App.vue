@@ -2,7 +2,6 @@
   <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''">
     <main class=" bg-gradient-to-b from-indigo-900  to-green-500 h-screen">
       <div class="max-w-4xl mx-auto">
-        
         <Header />
         <div class="flex flex-col">
           <div class="p-10">
@@ -10,7 +9,6 @@
               class="w-full rounded-lg text-gray-100 border-2 border-violet-400 p-2 bg-inherit focus:outline-none focus:border-blue-500"
               placeholder="Enter location here..." v-model="query" @keypress="fetchWeather" />
           </div>
-
           <div class="flex flex-col justify-center p-10 text-white" v-if="typeof weather.main != 'undefined'">
             <div class="flex flex-col justify-center text-center my-10">
               <div class="location lg:text-4xl text-2xl">{{ weather.name }}, {{ weather.sys.country }}</div>
@@ -22,6 +20,7 @@
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     </main>
   </div>
@@ -29,10 +28,12 @@
 
 <script>
 import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 export default {
   name: 'app', 
   components: {
-    Header
+    Header,
+    Footer,
   },
   data() {
     return {
