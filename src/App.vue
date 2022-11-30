@@ -1,20 +1,20 @@
 <template>
-  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''">
-    <main class=" bg-gradient-to-b from-indigo-900  to-green-500 h-screen">
+  <div id="app" class="bg-gradient-to-b from-indigo-900  to-green-500">
+    <main class=" h-screen max-h-screen overflow-y-hidden overflow-x-hidden">
       <div class="max-w-4xl mx-auto">
         <Header />
-        <div class="flex flex-col">
+      <div class="flex flex-col">
           <div class="p-10">
             <input type="text"
               class="w-full rounded-lg text-gray-100 border-2 border-violet-400 p-2 bg-inherit focus:outline-none focus:border-blue-500"
               placeholder="Enter location here..." v-model="query" @keypress="fetchWeather" />
           </div>
-          <div class="flex flex-col justify-center p-10 text-white" v-if="typeof weather.main != 'undefined'">
+          <div class="flex flex-col p-10 text-white" v-if="typeof weather.main != 'undefined'">
             <div class="flex flex-col justify-center text-center my-10">
               <div class="location lg:text-4xl text-2xl">{{ weather.name }}, {{ weather.sys.country }}</div>
               <div class="date lg:text-3xl text-xl">{{ dateBuilder() }}</div>
             </div>
-            <div class="flex flex-col justify-center text-center my-10">
+            <div class="flex flex-col justify-center text-center">
               <div class="font-bold lg:text-4xl text-2xl">{{ Math.round(weather.main.temp) }}°c</div>
               <div class="font-semibold lg:text-lg text-sm">{{ weather.weather[0].main }}</div>
             </div>
